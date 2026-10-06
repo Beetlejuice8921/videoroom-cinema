@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Videoroom — кинозал</title>
+  <link rel="stylesheet" href="../shared/venue-map.css?v=1791286177">
+  <link rel="stylesheet" href="room.css?v=1791286177">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <span id="title">🎬 Videoroom</span>
+      <span class="hint">1–9, Q/E, WASD — ракурсы · Пробел — пауза · ←/→ — 5 с · [ ] — сдвиг ±0.1 с · F — полный экран</span>
+    </header>
+
+    <div id="banner" hidden></div>
+
+    <div id="stage-wrap">
+      <div id="stage">
+        <div id="poster"></div>
+        <div id="toast"></div>
+        <button id="start" type="button"><span>▶</span>Смотреть</button>
+      </div>
+    </div>
+
+    <div id="controls">
+      <button id="play" type="button" title="Пауза / воспроизведение (Пробел)">▶</button>
+      <span id="time">0:00 / 0:00</span>
+      <input id="seek" type="range" min="0" max="1" step="0.1" value="0">
+      <button id="mute" type="button" title="Звук (M)">🔊</button>
+      <input id="volume" type="range" min="0" max="100" step="1" value="100">
+      <button id="audio-mode" type="button" title="Откуда брать звук"></button>
+      <span class="offset" title="Сдвиг активного ракурса относительно общей шкалы времени">
+        <span class="muted">Сдвиг:</span>
+        <button type="button" data-nudge="-1">−1</button>
+        <button type="button" data-nudge="-0.1">−0.1</button>
+        <span id="offset-val">+0.00 с</span>
+        <button type="button" data-nudge="0.1">+0.1</button>
+        <button type="button" data-nudge="1">+1</button>
+      </span>
+      <button id="fullscreen" type="button" title="Полный экран (F)">⛶</button>
+    </div>
+
+    <div id="bottom">
+      <div id="cams"></div>
+    </div>
+  </div>
+
+  <script src="../shared/rooms.js?v=1791286177"></script>
+  <script src="../shared/embed-player.js?v=1791286177"></script>
+  <script src="../shared/venue-map.js?v=1791286177"></script>
+  <script src="room.js?v=1791286177"></script>
+</body>
+</html>
